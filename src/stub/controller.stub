@@ -1,0 +1,69 @@
+<?php
+
+namespace {{ namespaceController }};
+
+use {{ namespaceCreateRequest }}\{{ classCreateRequest }};
+use {{ namespaceUpdateRequest }}\{{ classUpdateRequest }};
+use {{ namespaceResourceCollection }}\{{ classResourceCollection }};
+use {{ namespaceResource }}\{{ classResource }};
+use {{ namespaceModel }}\{{ classModel }};
+
+class {{ classController }} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return {{ classResourceCollection }}
+     */
+    public function index()
+    {
+        return new {{ classResourceCollection }}({{ classModel }}::paginate()->withQueryString());
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param {{ classCreateRequest }} $request
+     * @return {{ classResource }}
+     */
+    public function store({{ classCreateRequest }} $request)
+    {
+        return new {{ classResource }}({{ classModel }}::create($request->validated()));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param {{ classModel }} {{ variableModel }}
+     * @return {{ classResource }}
+     */
+    public function show({{ classModel }} {{ variableModel }})
+    {
+        return new {{ classResource }}({{ variableModel }});
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param {{ classUpdateRequest }} $request
+     * @param {{ classModel }} {{ variableModel }}
+     * @return {{ classResource }}
+     */
+    public function update({{ classUpdateRequest }} $request, {{ classModel }} {{ variableModel }})
+    {
+        {{ variableModel }}->update($request->validated());
+
+        return new {{ classResource }}({{ variableModel }});
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param {{ classModel }} {{ variableModel }}
+     * @return bool
+     */
+    public function destroy({{ classModel }} {{ variableModel }})
+    {
+        return {{ variableModel }}->delete();
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "name": "arturssmirnovs/laravel-vue-crud-generator",
+    "description": "Laravel VueJS CRUD generator",
+    "autoload": {
+        "psr-4": {
+            "Arturssmirnovs\\LaravelVueCrudGenerator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Arturs Smirnovs",
+            "email": "yam.aka.as@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Arturssmirnovs\\LaravelVueCrudGenerator\\LaravelVueCrudGeneratorServiceProvider"
+            ]
+        }
+    }
+}
